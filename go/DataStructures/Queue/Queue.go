@@ -53,6 +53,10 @@ func (q *Queue) Dequeue() error {
 }
 
 func (q *Queue) Peek() int {
+    if q.IsEmpty() {
+        return -1
+    }
+
     return q.head.data
 }
 

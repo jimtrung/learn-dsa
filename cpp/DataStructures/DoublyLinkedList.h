@@ -65,9 +65,10 @@ public:
             delete head;
             head = tail = NULL;
         } else {
-            delete tail;
+            Node* nodeToDelete = tail;
             tail = tail->prev;
             tail->next = NULL;
+            delete tail;
         }
     }
 

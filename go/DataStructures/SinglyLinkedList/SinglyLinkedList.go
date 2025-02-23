@@ -83,6 +83,7 @@ func (list *LinkedList) PopBack() error {
             curr = curr.next
         }
         curr.next = nil
+        list.tail = curr;
     }
 
     return nil

@@ -109,6 +109,8 @@ class LinkedList {
 
         if (curr.next === this.tail) {
             this.tail = curr;
+            curr.next = null;
+            return;
         }
         curr.next = curr.next.next;
     }

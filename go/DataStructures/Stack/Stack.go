@@ -47,6 +47,10 @@ func (s *Stack) Pop() error {
 }
 
 func (s *Stack) Peek() int {
+    if s.IsEmpty() {
+        return -1
+    }
+
     return s.head.data
 }
 

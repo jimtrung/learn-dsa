@@ -71,6 +71,7 @@ public:
             }
             delete curr->next;
             curr->next = NULL;
+            tail = curr;
         }
     }
 

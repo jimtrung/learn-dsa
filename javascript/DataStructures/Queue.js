@@ -40,6 +40,10 @@ class Queue {
     }
 
     peek() {
+        if (this.isEmpty()) {
+            return -1;
+        }
+
         return this.head.data;
     }
 }
