@@ -6,9 +6,11 @@ import (
 	"slices"
 
 	bubblesort "github.com/jimtrung/learn-dsa/go/sortalgorithms/BubbleSort"
+	insertionsort "github.com/jimtrung/learn-dsa/go/sortalgorithms/InsertionSort"
+	selectionsort "github.com/jimtrung/learn-dsa/go/sortalgorithms/SelectionSort"
 )
 
-func TestBubbleSort() {
+func TestSort(f func([]int)) {
 	tests := []struct {
 		input    []int
 		expected []int
@@ -23,7 +25,7 @@ func TestBubbleSort() {
 
 	for i, test := range tests {
 		arr := slices.Clone(test.input)
-		bubblesort.BubbleSort(arr)
+        f(arr)
 
 		if !reflect.DeepEqual(arr, test.expected) {
 			fmt.Printf(
@@ -37,5 +39,15 @@ func TestBubbleSort() {
 }
 
 func main() {
-	TestBubbleSort()
+    fmt.Printf("Testing Bubble Sort\n")
+	TestSort(bubblesort.BubbleSort)
+    fmt.Println()
+
+    fmt.Printf("Testing Selection Sort\n")
+    TestSort(selectionsort.SelectionSort)
+    fmt.Println()
+
+    fmt.Printf("Testing Insertion Sort\n")
+    TestSort(insertionsort.InsertionSort)
+    fmt.Println()
 }
